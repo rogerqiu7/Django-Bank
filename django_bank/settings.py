@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # BASE_DIR is the root directory of the project
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -66,7 +67,7 @@ DATABASES = {
         'ENGINE': 'djongo',                  # MongoDB connector for Django
         'NAME': 'django_bank',               # Database name
         'CLIENT': {                          # MongoDB connection parameters
-            'host': 'mongodb+srv://Cluster57205:ZnZifVhTe2FO@cluster57205.wswiz.mongodb.net/django_bank', # Connection string of my cluster in MongoDB Atlas
+            'host': os.environ.get('MONGODB_URI'), # Connection string of my cluster in MongoDB Atlas
         }
     }
 }
